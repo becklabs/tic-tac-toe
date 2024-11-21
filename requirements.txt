@@ -1,2 +1,1 @@
-sympy
 z3-solver
