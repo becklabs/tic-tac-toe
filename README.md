@@ -1,6 +1,6 @@
 # tic-tac-toe
 
-This repository serves to formally verify our digital electronic implementation of the [tic-tac-toe](https://arxiv.org/abs/2406.16801) game.
+This repository serves to formally verify our digital electronic implementation of the [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game.
 
  Our electronic device consists of a 3x3 grid of three-way switches, and a 3x3 grid of LEDs. The switches are used to indicate the occupation of each tile (player 1, player 2, empty), and the LEDs are used to display the game state. When a win condition is met, the respective row, column, or diagonal is lit up with green lights, and all other lights are turned off. 
 
