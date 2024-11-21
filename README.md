@@ -29,19 +29,22 @@ We verify the following properties of our input and output signals:
 1. If there is a winning configuration (three marks in a row, column, or diagonal) for either player, then all green LEDs in that line must be lit.
 
   Formally: For any winning line $L$ (row, column, or diagonal), let $iR_L$ and $iB_L$ be the inputs along that line and $G_L$ be the green LEDs along that line:
-  $$\forall L: (iR_L[0] \land iR_L[1] \land iR_L[2]) \rightarrow (G_L[0] \land G_L[1] \land G_L[2])$$
-  $$\forall L: (iB_L[0] \land iB_L[1] \land iB_L[2]) \rightarrow (G_L[0] \land G_L[1] \land G_L[2])$$
+
+$$\forall L: (iR_L[0] \land iR_L[1] \land iR_L[2]) \rightarrow (G_L[0] \land G_L[1] \land G_L[2])$$
+$$\forall L: (iB_L[0] \land iB_L[1] \land iB_L[2]) \rightarrow (G_L[0] \land G_L[1] \land G_L[2])$$
 
 2. If all green LEDs in a line are lit and no other green LEDs are lit, then there must be a winning configuration (either all red or all blue) in that line.
 
   Formally: For any line $L$ and its complement $\bar{L}$ (all positions not in $L$):
-  $$\forall L: (G_L[0] \land G_L[1] \land G_L[2] \land \lnot(\bigvee G_{\bar{L}})) \rightarrow 
-      ((iR_L[0] \land iR_L[1] \land iR_L[2]) \lor (iB_L[0] \land iB_L[1] \land iB_L[2]))$$
+
+$$\forall L: (G_L[0] \land G_L[1] \land G_L[2] \land \lnot(\bigvee G_{\bar{L}})) \rightarrow 
+    ((iR_L[0] \land iR_L[1] \land iR_L[2]) \lor (iB_L[0] \land iB_L[1] \land iB_L[2]))$$
 
 3. When any green LED is on (indicating a win), all red and blue LEDs must be off.
 
   Formally: 
-  $$(\bigvee_{i,j} G_{ij}) \rightarrow \lnot((\bigvee_{i,j} R_{ij}) \lor (\bigvee_{i,j} B_{ij}))$$
+
+$$(\bigvee_{i,j} G_{ij}) \rightarrow \lnot((\bigvee_{i,j} R_{ij}) \lor (\bigvee_{i,j} B_{ij}))$$
 
 > **Note**  
 > Our hardware implementation prevents a given tile from being occupied by more than one player, so we do not verify this proper
